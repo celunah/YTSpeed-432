@@ -106,7 +106,7 @@ const ytSpeed = {
         const wowVariation = Math.sin(this.wowPhase) * this.wowAmount / 100;
 
         let flutterVariation = Math.sin(this.flutterPhase) * this.flutterAmount;
-        flutterVariation += (Math.random() - 0.5) * this.flutterAmount / 100 * 0.5;
+        flutterVariation += (Math.random() - 0.5) * (this.flutterAmount / 100) * 0.5;
 
         const totalVariation = wowVariation + flutterVariation;
         const effectiveRate = this.playbackRate * (1 + totalVariation);
@@ -172,8 +172,8 @@ const ytSpeed = {
     },
 
     setWowFlutterIntensity: function (wowAmount, flutterAmount) {
-        this.wowAmount = wowAmount || 0.005;
-        this.flutterAmount = flutterAmount || 0.001;
+        this.wowAmount = wowAmount || 0.1;
+        this.flutterAmount = flutterAmount || 0.5;
 
         if (this.wowFlutterEnabled) {
             this.applyWowFlutter();
