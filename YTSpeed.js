@@ -4,11 +4,10 @@ const ytSpeed = {
     wowFlutterEnabled: false,
     wowFlutterInterval: null,
 
-    // Wow and flutter settings
     wowFrequency: 0.5,
     flutterFrequency: 10,
-    wowAmount: 0.005,
-    flutterAmount: 0.001,
+    wowAmount: 0.1,
+    flutterAmount: 0.5,
     wowPhase: 0,
     flutterPhase: 0,
 
@@ -104,10 +103,10 @@ const ytSpeed = {
         const videos = document.getElementsByTagName('video');
         if (videos.length === 0) return;
 
-        const wowVariation = Math.sin(this.wowPhase) * this.wowAmount;
+        const wowVariation = Math.sin(this.wowPhase) * this.wowAmount / 100;
 
         let flutterVariation = Math.sin(this.flutterPhase) * this.flutterAmount;
-        flutterVariation += (Math.random() - 0.5) * this.flutterAmount * 0.5;
+        flutterVariation += (Math.random() - 0.5) * this.flutterAmount / 100 * 0.5;
 
         const totalVariation = wowVariation + flutterVariation;
         const effectiveRate = this.playbackRate * (1 + totalVariation);
