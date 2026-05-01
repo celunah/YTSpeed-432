@@ -103,10 +103,14 @@ const ytSpeed = {
         const videos = document.getElementsByTagName('video');
         if (videos.length === 0) return;
 
-        const wowVariation = Math.sin(this.wowPhase) * this.wowAmount / 100;
+        const wowVariation =
+            Math.sin(this.wowPhase) * (this.wowAmount / 100);
 
-        let flutterVariation = Math.sin(this.flutterPhase) * this.flutterAmount;
-        flutterVariation += (Math.random() - 0.5) * (this.flutterAmount / 100) * 0.5;
+        let flutterVariation =
+            Math.sin(this.flutterPhase) * (this.flutterAmount / 100);
+
+        flutterVariation +=
+            (Math.random() - 0.5) * (this.flutterAmount / 100) * 0.5;
 
         const totalVariation = wowVariation + flutterVariation;
         const effectiveRate = this.playbackRate * (1 + totalVariation);
