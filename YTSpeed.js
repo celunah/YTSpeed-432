@@ -33,8 +33,10 @@ const ytSpeed = {
 
         observer.observe(playerContainer, observerOptions);
 
-        ytSpeed.updateVideos();
         ytSpeed.setupWowFlutter();
+        setInterval(() => {
+            ytSpeed.updateVideos();
+        }, 10);
     },
 
     setupWowFlutter: function () {
